@@ -122,15 +122,18 @@ const AddDeviceScreen = ({navigation}) => {
   const pickImage = async () => {
     const options = {};
     await launchImageLibrary(options, response => {
-      const _responseAssets = response.assets;
-      setImage(_responseAssets[0].uri);
-
-      const photo = {
-        uri: _responseAssets[0].uri,
-        type: 'image/jpeg',
-        name: 'photo.jpg',
-      };
-      setImageResult(photo);
+      try {
+        const _responseAssets = response.assets;
+        setImage(_responseAssets[0].uri);
+        const photo = {
+          uri: _responseAssets[0].uri,
+          type: 'image/jpeg',
+          name: 'photo.jpg',
+        };
+        setImageResult(photo);
+      } catch (err) {
+        console.log(err);
+      }
     });
   };
 
