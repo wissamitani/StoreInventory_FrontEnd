@@ -302,7 +302,7 @@ const HomeScreen = ({navigation}) => {
           renderItem={({item}) => <Card device={item} />}
         />
       )}
-      {/* End Of Listing Devices Section */}
+      {/* End Of Listing Devices*/}
     </SafeAreaViewContainer>
   );
 };
